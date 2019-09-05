@@ -34,8 +34,9 @@ sub main {
 sub test_t_plus_1 {
 
     # T+1
-    # for test data, as would be read from CSV
-    my @test_data_row = split ',', '12345,1';
+    # test data is a row of:
+    #   <transaction_id>, <transaction_date>, <settlement_date>
+    my @test_data_row = split ',', '12345,05-SEP-2019,06-SEP-2019';
     ok( Transactions::Settlement::is_t_plus( \@test_data_row, 1 ) == $TRUE,
         'T+1 transaction correctly identified' );
 
@@ -45,8 +46,9 @@ sub test_t_plus_1 {
 sub test_t_plus_2 {
 
     # T+2
-    # for test data, as would be read from CSV
-    my @test_data_row = split ',', '12345,2';
+    # test data is a row of:
+    #   <transaction_id>, <transaction_date>, <settlement_date>
+    my @test_data_row = split ',', '12345,05-SEP-2019,07-SEP-2019';
     ok( Transactions::Settlement::is_t_plus( \@test_data_row, 2 ) == $TRUE,
         'T+2 transaction correctly identified' );
 
