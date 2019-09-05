@@ -12,15 +12,20 @@ The exact format of the transaction file is not known, however implementation ca
 
 Clone this repo to your local machine using `https://github.com/stock90/process_transactions.git`
 
-## Setup
+## Dependencies
 
-CPAN modules **Text::CSV** and **Test::Simple** should be installed.
+CPAN modules
+
+  * **Text::CSV**
+  * **Test::Simple**
+  * **Time::ParseDate**
 
 To verify installation, these should run without errors:
 
 ```shell
 perl -e 'use Text::CSV;'
 perl -e 'use Test::Simple;'
+perl -e 'use Time::ParseDate;'
 ```
 
 ## Usage
