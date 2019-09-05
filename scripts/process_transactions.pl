@@ -62,12 +62,12 @@ sub process_line {
     my ( $csv, $row ) = @_;
 
     # check settlement of this transaction
-    if ( Transactions::Settlement::is_t_plus( $row, 1 ) ) {
+    if ( Transactions::Settlement::is_t_plus_1($row) ) {
 
         # this transaction is T+1
         push @t_plus_1, $row;
     }
-    elsif ( Transactions::Settlement::is_t_plus( $row, 2 ) ) {
+    elsif ( Transactions::Settlement::is_t_plus_2($row) ) {
 
         # this transaction is T+2
         push @t_plus_2, $row;

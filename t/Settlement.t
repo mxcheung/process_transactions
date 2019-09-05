@@ -37,7 +37,7 @@ sub test_t_plus_1 {
     # test data is a row of:
     #   <transaction_id>, <transaction_date>, <settlement_date>
     my @test_data_row = split ',', '12345,05-SEP-2019,06-SEP-2019';
-    ok( Transactions::Settlement::is_t_plus( \@test_data_row, 1 ) == $TRUE,
+    ok( Transactions::Settlement::is_t_plus_1( \@test_data_row ) == $TRUE,
         'T+1 transaction correctly identified' );
 
     return 1;
@@ -49,7 +49,7 @@ sub test_t_plus_2 {
     # test data is a row of:
     #   <transaction_id>, <transaction_date>, <settlement_date>
     my @test_data_row = split ',', '12345,05-SEP-2019,07-SEP-2019';
-    ok( Transactions::Settlement::is_t_plus( \@test_data_row, 2 ) == $TRUE,
+    ok( Transactions::Settlement::is_t_plus_2( \@test_data_row ) == $TRUE,
         'T+2 transaction correctly identified' );
 
     return 1;
