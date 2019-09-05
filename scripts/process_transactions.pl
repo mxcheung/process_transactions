@@ -37,12 +37,12 @@ sub main {
 # TODO: will the actual one have spaces and quotes?
 # TODO: formatting specifics of transaction file
 # TODO: get actual file name and paths
-    my $transactions_file = shift || 'data/transactions.csv';
+    my $transactions_file = $ARGV[0] || 'data/transactions.csv';
 
     # output files (argv[2] and argv[3] or use defaults)
     # TODO: get actual file names and paths
-    my $t_plus_1_file = shift || 'data/t1.csv';
-    my $t_plus_2_file = shift || 'data/t2.csv';
+    my $t_plus_1_file = $ARGV[1] || 'data/t1.csv';
+    my $t_plus_2_file = $ARGV[2] || 'data/t2.csv';
 
     # read $transaction_file, execute process_line() on every line
     printf "Reading transactions from: %s\n", $transactions_file;
