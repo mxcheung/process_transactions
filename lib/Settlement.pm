@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-package Transactions::Settlement;
+package Settlement;
 use warnings;
 use strict;
 
@@ -53,25 +53,25 @@ __END__
 
 =head1 NAME
 
-Transactions::Settlement - Given transaction, determine if it is T+1 or T+2 or ... 
+Settlement.pm - Given transaction, determine if it is T+1 or T+2
 
 =head1 SYNOPSIS
 
-    use Transactions::Settlement;
+    use Settlement;
 
     # $row is array of array, read from transaction file
 
-    if ( Transactions::Settlement::is_t_plus_1( $row ) ) {
+    if ( Settlement::is_t_plus_1( $row ) ) {
         # this transaction is T+1
     }
 
-    if ( Transactions::Settlement::is_t_plus_2( $row ) ) {
+    if ( Settlement::is_t_plus_2( $row ) ) {
         # this transaction is T+2
     }
 
 =head1 DESCRIPTION
 
-Logic for whether a transaction is T+1, T+2 or ...
+Logic for whether a transaction is T+1, T+2
 
 Return TRUE or FALSE
 

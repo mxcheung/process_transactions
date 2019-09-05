@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-package Transactions::Writer;
+package Writer;
 use warnings;
 use strict;
 
@@ -31,14 +31,14 @@ __END__
 
 =head1 NAME
 
-Transactions::Writer - Simplified writing of transactions file
+Writer.pm - Simplified writing of transactions file
 
 =head1 SYNOPSIS
 
-    use Transactions::Writer;
+    use Writer;
 
     # write out array of array ($aoa) to $output_file
-    Transactions::Writer::write_aoa( $output_file, \@aoa );
+    Writer::write_aoa( $output_file, \@aoa );
 
 
 =head1 DESCRIPTION

@@ -20,9 +20,9 @@ Readonly my $TRUE  => 1;
 Readonly my $FALSE => q();
 
 # modules to read, write CSV, determine if settlement is T+1, T+2
-use Transactions::Reader;
-use Transactions::Writer;
-use Transactions::Settlement;
+use Reader;
+use Writer;
+use Settlement;
 
 # buffers for t_plus_* transactions
 my @t_plus_1;
@@ -46,13 +46,13 @@ sub main {
 
     # read $transaction_file, execute process_line() on every line
     printf "Reading transactions from: %s\n", $transactions_file;
-    Transactions::Reader::process_file( $transactions_file, \&process_line );
+    Reader::process_file( $transactions_file, \&process_line );
 
     # write out t_plus_1, t_plus_2 transactions
     printf "Writing T+1 to: %s\n", $t_plus_1_file;
-    Transactions::Writer::write_aoa( $t_plus_1_file, \@t_plus_1 );
+    Writer::write_aoa( $t_plus_1_file, \@t_plus_1 );
     printf "Writing T+2 to: %s\n", $t_plus_2_file;
-    Transactions::Writer::write_aoa( $t_plus_2_file, \@t_plus_2 );
+    Writer::write_aoa( $t_plus_2_file, \@t_plus_2 );
 
     return 1;
 }
@@ -62,12 +62,12 @@ sub process_line {
     my ( $csv, $row ) = @_;
 
     # check settlement of this transaction
-    if ( Transactions::Settlement::is_t_plus_1($row) ) {
+    if ( Settlement::is_t_plus_1($row) ) {
 
         # this transaction is T+1
         push @t_plus_1, $row;
     }
-    elsif ( Transactions::Settlement::is_t_plus_2($row) ) {
+    elsif ( Settlement::is_t_plus_2($row) ) {
 
         # this transaction is T+2
         push @t_plus_2, $row;

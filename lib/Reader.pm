@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-package Transactions::Reader;
+package Reader;
 use warnings;
 use strict;
 
@@ -45,14 +45,14 @@ __END__
 
 =head1 NAME
 
-Transactions::Reader - Simplified reading and line processing of transactions file
+Reader.pm - Simplified reading and line processing of transactions file
 
 =head1 SYNOPSIS
 
-    use Transactions::Reader;
+    use Reader;
 
     # read $transaction_file, execute process_line() on every line
-    Transactions::Reader::process_file( $transactions_file, \&process_line );
+    Reader::process_file( $transactions_file, \&process_line );
 
     sub process_line {
         my ( $csv, $row ) = @_;
