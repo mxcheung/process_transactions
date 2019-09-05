@@ -22,15 +22,34 @@ Readonly my $FALSE => q();
 
 use Transactions::Settlement;
 
-# for test data, as would be read from CSV
-my @test_data_row;
+main();
 
-# T+1
-@test_data_row = split ',', 'row4_field0,row4_field1,row4_field2,1';
-ok( Transactions::Settlement::is_t_plus( \@test_data_row, 1 ) == $TRUE,
-    'T+1 transaction correctly identified' );
+sub main {
+    test_t_plus_1();
+    test_t_plus_2();
 
-# T+2
-@test_data_row = split ',', 'row4_field0,row4_field1,row4_field2,2';
-ok( Transactions::Settlement::is_t_plus( \@test_data_row, 2 ) == $TRUE,
-    'T+2 transaction correctly identified' );
+    return 1;
+}
+
+sub test_t_plus_1 {
+
+    # T+1
+    # for test data, as would be read from CSV
+    my @test_data_row = split ',', 'row4_field0,row4_field1,row4_field2,1';
+    ok( Transactions::Settlement::is_t_plus( \@test_data_row, 1 ) == $TRUE,
+        'T+1 transaction correctly identified' );
+
+    return 1;
+}
+
+sub test_t_plus_2 {
+
+    # T+2
+    # for test data, as would be read from CSV
+    my @test_data_row = split ',', 'row4_field0,row4_field1,row4_field2,2';
+    ok( Transactions::Settlement::is_t_plus( \@test_data_row, 2 ) == $TRUE,
+        'T+2 transaction correctly identified' );
+
+    return 1;
+
+}

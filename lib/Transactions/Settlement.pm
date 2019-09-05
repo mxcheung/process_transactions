@@ -18,7 +18,7 @@ sub is_t_plus {
 # TODO: fields will obviously be dates
 # TODO: change code to find differences between dates, account for weekends, holidays, etc.
 
-    if ( $row->[3] == $t_plus_param ) {
+    if ( $row->[1] == $t_plus_param ) {
         return $TRUE;
     }
     else {
