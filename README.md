@@ -67,32 +67,32 @@ to run:
 
 ## Documentation
 
-### lib/Transactions/Reader.pm
+### lib/Reader.pm
 see docs at:
 
-  * `perldoc lib/Transactions/Reader.pm`
+  * `perldoc lib/Reader.pm`
 
 or
 
-  * lib/Transactions/Reader.pdf
+  * lib/Reader.pdf
 
-### lib/Transactions/Writer.pm
+### lib/Writer.pm
 see docs at:
 
-  * `perldoc lib/Transactions/Writer.pm`
+  * `perldoc lib/Writer.pm`
 
 or
 
-  * lib/Transactions/Reader.pdf
+  * lib/Reader.pdf
 
 
-### lib/Transactions/Settlement.pm
+### lib/Settlement.pm
 see docs at:
 
-  * `perldoc lib/Transactions/Settlement.pm`
+  * `perldoc lib/Settlement.pm`
 
 or
 
-  * lib/Transactions/Settlement.pdf
+  * lib/Settlement.pdf
 
 
