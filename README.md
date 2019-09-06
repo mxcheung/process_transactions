@@ -83,7 +83,7 @@ see docs at:
 
 or
 
-  * lib/Reader.pdf
+  * lib/Writer.pdf
 
 
 ### lib/Settlement.pm

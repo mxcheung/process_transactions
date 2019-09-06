@@ -20,7 +20,7 @@ sub write_aoa {
         sep_char => q(,),
     );
 
-    return;
+    return 1;
 }
 
 1;

@@ -8,9 +8,8 @@ our $VERSION = '1.0';
 
 use Text::CSV qw( csv );
 
-sub process_file {
-
-    my ( $input_file, $func ) = @_;
+sub read_as_aoa {
+    my ($input_file) = @_;
 
     my $aoa = csv(
         in => $input_file,
@@ -27,14 +26,9 @@ sub process_file {
         #    headers          => "auto",
         # headers are converted to lower case
         #    headers          => "lc",
-
-        # callback function for each line of csv
-        callbacks => {
-            after_parse => $func,
-        }
     );
 
-    return;
+    return $aoa;
 }
 
 1;
@@ -45,29 +39,17 @@ __END__
 
 =head1 NAME
 
-Reader.pm - Simplified reading and line processing of transactions file
+Reader.pm - Reading transactions file into array of array
 
 =head1 SYNOPSIS
 
     use Reader;
 
-    # read $transaction_file, execute process_line() on every line
-    Reader::process_file( $transactions_file, \&process_line );
-
-    sub process_line {
-        my ( $csv, $row ) = @_;
-
-        # do something with $row
-        my $string = join(',', @{$row});
-        print $string . "\n";
-    }
+    # read $transaction_file, returns array of array
+    my $aoa = Reader::read_as_aoa($transactions_file)
 
 
 =head1 DESCRIPTION
-
-Simplify processing of each line of transaction file CSV.
-
-Implement callback function for each line of a CSV, by wrapping Text::CSV.
 
 CSV settings are specific to the transaction file.
 

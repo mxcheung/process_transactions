@@ -4,7 +4,6 @@ package Settlement;
 use warnings;
 use strict;
 
-#http://perlmeme.org/faqs/datetime/comparing_dates.html
 use Time::ParseDate qw(parsedate);
 
 our $VERSION = '1.0';
@@ -12,6 +11,32 @@ our $VERSION = '1.0';
 use Readonly;
 Readonly my $TRUE  => 1;
 Readonly my $FALSE => q();
+
+sub process_lines {
+
+    # for each line of the transaction file
+    # in array of array $aoa
+    # if it is T+1, push row into t_plus_1 buffer
+    # if it is T+2, push row into t_plus_2 buffer
+    my ( $aoa, $t_plus_1_ref, $t_plus_2_ref ) = @_;
+
+    foreach my $row (@$aoa) {
+
+        if ( Settlement::is_t_plus_1($row) ) {
+
+            # this transaction is T+1
+            push @$t_plus_1_ref, $row;
+        }
+        elsif ( Settlement::is_t_plus_2($row) ) {
+
+            # this transaction is T+2
+            push @$t_plus_2_ref, $row;
+        }
+
+    }
+
+    return 1;
+}
 
 sub is_t_plus_1 {
     my ($row) = @_;
@@ -26,9 +51,8 @@ sub is_t_plus_2 {
 sub _is_t_plus {
     my ( $row, $t_plus_param ) = @_;
 
-    # TODO: which fields contain data to determine t+?
-    # TODO: transaction_date in field 1
-    # TODO: settlement_date in field 2
+    # transaction_date in field 1
+    # settlement_date in field 2
     # TODO: change code to account for weekends, holidays, etc.
 
     my $transaction_date = $row->[1];
