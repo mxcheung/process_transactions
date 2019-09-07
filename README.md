@@ -39,12 +39,12 @@ perl -I lib scripts/process_transactions.pl
 or specify input and output files:
 
 ```shell
-perl -I lib scripts/process_transactions.pl data/transactions.csv data/t1.csv data/t2.csv
+perl -I lib scripts/process_transactions.pl <transaction_file> <t+1_file> <t+2_file>
 ```
 
 ## Unit Test
 
-Unit test for Settlment.pm - test if correctly identifying T+1 & T+2 transactions:
+Unit test for Settlement.pm - test if correctly identifying T+1 & T+2 transactions:
 
 ```shell
 perl -I lib t/Settlement/Settlement.t
@@ -67,32 +67,32 @@ to run:
 
 ## Documentation
 
-### lib/Reader.pm
+### lib/Settlement/Reader.pm
 see docs at:
 
-  * `perldoc lib/Reader.pm`
+  * `perldoc lib/Settlement/Reader.pm`
 
 or
 
-  * lib/Reader.pdf
+  * lib/Settlement/Reader.pdf
 
-### lib/Writer.pm
+### lib/Settlement/Writer.pm
 see docs at:
 
-  * `perldoc lib/Writer.pm`
+  * `perldoc lib/Settlement/Writer.pm`
 
 or
 
-  * lib/Writer.pdf
+  * lib/Settlement/Writer.pdf
 
 
-### lib/Settlement.pm
+### lib/Settlement/Settlement.pm
 see docs at:
 
-  * `perldoc lib/Settlement.pm`
+  * `perldoc lib/Settlement/Settlement.pm`
 
 or
 
-  * lib/Settlement.pdf
+  * lib/Settlement/Settlement.pdf
 
 
