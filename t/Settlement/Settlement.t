@@ -20,7 +20,7 @@ use Readonly;
 Readonly my $TRUE  => 1;
 Readonly my $FALSE => q();
 
-use Settlement;
+use Settlement::Settlement;
 
 main();
 
@@ -40,7 +40,7 @@ sub test_t_plus_1 {
     #   <transaction_id>, <transaction_date>, <settlement_date>
     #
     my @test_data_row = split ',', '12345,05-SEP-2019,06-SEP-2019';
-    ok( Settlement::is_t_plus_1( \@test_data_row ) == $TRUE,
+    ok( Settlement::Settlement::is_t_plus_1( \@test_data_row ) == $TRUE,
         'T+1 transaction correctly identified' );
 
     return 1;
@@ -55,7 +55,7 @@ sub test_t_plus_2 {
     #   <transaction_id>, <transaction_date>, <settlement_date>
     #
     my @test_data_row = split ',', '12345,05-SEP-2019,07-SEP-2019';
-    ok( Settlement::is_t_plus_2( \@test_data_row ) == $TRUE,
+    ok( Settlement::Settlement::is_t_plus_2( \@test_data_row ) == $TRUE,
         'T+2 transaction correctly identified' );
 
     return 1;

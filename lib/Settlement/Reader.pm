@@ -1,12 +1,12 @@
 #!/usr/bin/perl
 
-package Reader;
+package Settlement::Reader;
 use warnings;
 use strict;
 
 our $VERSION = '1.0';
 
-use Text::CSV qw( csv );
+use Text::CSV qw(csv);
 
 sub read_as_aoa {
     my ($input_file) = @_;
@@ -43,10 +43,10 @@ Reader.pm - Reading transactions file into array of array
 
 =head1 SYNOPSIS
 
-    use Reader;
+    use Settlement::Reader;
 
     # read $transaction_file, returns array of array
-    my $aoa = Reader::read_as_aoa($transactions_file)
+    my $aoa = Settlement::Reader::read_as_aoa($transactions_file)
 
 
 =head1 DESCRIPTION

@@ -1,12 +1,12 @@
 #!/usr/bin/perl
 
-package Writer;
+package Settlement::Writer;
 use warnings;
 use strict;
 
 our $VERSION = '1.0';
 
-use Text::CSV qw( csv );
+use Text::CSV qw(csv);
 
 sub write_aoa {
 
@@ -35,7 +35,7 @@ Writer.pm - Simplified writing of transactions file
 
 =head1 SYNOPSIS
 
-    use Writer;
+    use Settlement::Writer;
 
     # write out array of array ($aoa) to $output_file
     Writer::write_aoa( $output_file, \@aoa );

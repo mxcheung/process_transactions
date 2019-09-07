@@ -47,7 +47,7 @@ perl -I lib scripts/process_transactions.pl data/transactions.csv data/t1.csv da
 Unit test for Settlment.pm - test if correctly identifying T+1 & T+2 transactions:
 
 ```shell
-perl -Ilib t/Settlement.t
+perl -I lib t/Settlement/Settlement.t
 ```
 
 ## Development Setup

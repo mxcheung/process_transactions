@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-package Settlement;
+package Settlement::Settlement;
 use warnings;
 use strict;
 
@@ -22,12 +22,12 @@ sub process_lines {
 
     foreach my $row (@$aoa) {
 
-        if ( Settlement::is_t_plus_1($row) ) {
+        if ( is_t_plus_1($row) ) {
 
             # this transaction is T+1
             push @$t_plus_1_ref, $row;
         }
-        elsif ( Settlement::is_t_plus_2($row) ) {
+        elsif ( is_t_plus_2($row) ) {
 
             # this transaction is T+2
             push @$t_plus_2_ref, $row;
@@ -81,15 +81,15 @@ Settlement.pm - Given transaction, determine if it is T+1 or T+2
 
 =head1 SYNOPSIS
 
-    use Settlement;
+    use Settlement::Settlement;
 
     # $row is array of array, read from transaction file
 
-    if ( Settlement::is_t_plus_1( $row ) ) {
+    if ( Settlement::Settlement::is_t_plus_1( $row ) ) {
         # this transaction is T+1
     }
 
-    if ( Settlement::is_t_plus_2( $row ) ) {
+    if ( Settlement::Settlement::is_t_plus_2( $row ) ) {
         # this transaction is T+2
     }
 
