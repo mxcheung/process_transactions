@@ -44,7 +44,9 @@ perl -I lib scripts/process_transactions.pl <transaction_file> <t+1_file> <t+2_f
 
 ## Unit Test
 
-Unit test for Settlement.pm - test if correctly identifying T+1 & T+2 transactions:
+Unit test for Settlement.pm 
+
+Test if correctly identifying T+1 & T+2 transactions:
 
 ```shell
 perl -I lib t/Settlement/Settlement.t
